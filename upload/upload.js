@@ -5,12 +5,13 @@ const fs = require('fs')
 const needle = require('needle')
 var OSS = require('ali-oss')
 var co = require('co')
+const uploadPath = ''
 module.exports = {
   init (c) {
     console.log(chalk.green(
       '获取配置'
     ))
-    needle.post('https://kaifa.jianbing.com/business/home/demo/post.php', {}, {
+    needle.post(uploadPath, {}, {
       multipart: false
     }, (err, resp, body) => {
       if (err) { console.log(err) }

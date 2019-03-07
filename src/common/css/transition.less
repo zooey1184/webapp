@@ -1,0 +1,145 @@
+@charset "UTF-8";
+/*淡入淡出*/
+.fade-enter-active {
+  -webkit-transition: all .2s linear;
+  transition: all .2s linear;
+}
+.fade-leave-active {
+  -webkit-transition: all .2s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  transition: all .2s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+/*淡入淡出*/
+.fadeLong-enter-active {
+  -webkit-transition: all .4s linear;
+  transition: all .4s linear;
+}
+.fadeLong-leave-active {
+  -webkit-transition: all .1s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  transition: all .1s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.fadeLong-enter, .fadeLong-leave-to {
+  opacity: 0;
+}
+/* 右进 */
+.rightOffset-enter-active, .rightOffset-leave-active {
+  -webkit-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+}
+.rightOffset-enter, .rightOffset-leave-to {
+  -webkit-transform: translateX(40px);
+          transform: translateX(40px);
+  opacity: 0;
+}
+/* 上进 */
+.topOffset-enter-active, .topOffset-leave-active {
+  -webkit-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+}
+.topOffset-enter, .topOffset-leave-to {
+  -webkit-transform: translateY(-40px);
+          transform: translateY(-40px);
+  opacity: 0;
+}
+
+/*bounce*/
+.bounce-enter-active, .bounce-leave-active {
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+.bounce-enter, .bounce-leave-to {
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
+  opacity: 0;
+}
+.bounce_sm-enter, .bounce_sm-leave-to {
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+  opacity: 0;
+}
+.bounce_sm-enter-active, .bounce_sm-leave-active {
+  -webkit-transition: all .3s ease-out;
+  transition: all .3s ease-out;
+}
+/*slide-toggle*/
+.slide-enter-active, .slide-leave-active {
+  -webkit-transition: all 0.4s linear;
+  transition: all 0.4s linear;
+}
+.slide-enter, .slide-leave-to {
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
+  opacity: 0;
+}
+/* 左进 */
+.leftSlide-enter-active, .leftSlide-leave-active {
+  -webkit-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+}
+.leftSlide-enter, .leftSlide-leave-to {
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+  opacity: 0;
+}
+/*scale-toggle*/
+.scale-enter-active, .scale-leave-active {
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+.scale-enter, .scale-leave-to {
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  opacity: 0;
+}
+/*rotate-toggle*/
+.rotate-enter-active, .rotate-leave-active {
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+.rotate-enter, .rotate-leave-to {
+  -webkit-transform: rotate(180deg) scale(0.5);
+          transform: rotate(180deg) scale(0.5);
+  opacity: 0;
+}
+/* 小浮动上移 */
+.toastSlideUp-enter-active, .toastSlideUp-leave-active {
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+.toastSlideUp-enter, .toastSlideUp-leave-to {
+  -webkit-transform: translateY(20px);
+          transform: translateY(20px);
+  opacity: 0;
+}
+/* 小浮动下移 */
+.toastSlideDown-enter-active, .toastSlideDown-leave-active {
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+.toastSlideDown-enter, .toastSlideDown-leave-to {
+  -webkit-transform: translateY(-20px);
+          transform: translateY(-20px);
+  opacity: 0;
+}
+
+.slideScale-enter-active, .slideScale-leave-active {
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+.slideScale-enter, .slideScale-leave-to {
+  -webkit-transform: translateY(20px) scale(0.9);
+          transform: translateY(20px) scale(0.9);
+  opacity: 0;
+}
+
+.rotateTrans-enter-active, .rotateTrans-leave-active {
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+.rotateTrans-enter, .rotateTrans-leave-to {
+  -webkit-transform: translateX(-80px) translateY(10px)  rotate(-30deg);
+          transform: translateX(-80px) translateY(10px)  rotate(-30deg);
+  opacity: 0;
+}

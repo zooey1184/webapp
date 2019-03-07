@@ -1,0 +1,22 @@
+// 动效下划线
+.underline_slide(@color: #00adb5, @height: 2px) {
+  position: relative;
+  &::after {
+    content: "";
+    width: 0;
+    height: @height;
+    background-color: @color;
+    position: absolute;
+    left: 100%;
+    bottom: 0;
+    transition: all .4s;
+  }
+  &:hover {
+    color: @color;
+    &::after {
+      width: 100%;
+      left: 0;
+      transition-delay: 0.1s;
+    }
+  }
+}

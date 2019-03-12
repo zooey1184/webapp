@@ -34,7 +34,7 @@ export default {
 
 <style lang="less">
 .nav_panel {
-  padding: 0 20px;
+  padding: 20px;
   h3 {
     color: #B68C76;
     font-size: 20px;

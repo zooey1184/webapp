@@ -127,6 +127,7 @@ export default {
       border: none;
       outline: none;
       font-size: 15px;
+      background: transparent
     }
   }
   .right {
@@ -141,5 +142,4 @@ export default {
     }
   }
 }
-
 </style>

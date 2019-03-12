@@ -1,5 +1,7 @@
 <template>
-  <div>
-    fate
-  </div>
+  <page>
+    <div>
+      fate
+    </div>
+  </page>
 </template>

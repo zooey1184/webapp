@@ -84,6 +84,12 @@ export default {
   font-size: 12px;
   background: #fff;
   padding-top: 4px;
+  z-index: 9;
+  position: absolute;
+  width: 100%;
+  height: 50px;
+  bottom: 0;
+  left: 0;
   .icon {
     width: 24px;
     display: block;

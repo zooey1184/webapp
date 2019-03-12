@@ -5,7 +5,7 @@
       <nav-panel></nav-panel>
       <top-panel></top-panel>
 
-      <div style="padding: 20px">
+      <!-- <div style="padding: 20px">
         <img style="width: 100%" src="./img/banner.png" alt="">
       </div>
 
@@ -47,7 +47,7 @@
           </div>
           <div style="width: 1px" class=" f_g1 f_s0"></div>
         </div>
-      </div>
+      </div> -->
 
       <div style="padding: 0 16px; margin-top: 32px">
         <more-title title='更多测算' more='全部测算'></more-title>
@@ -56,7 +56,6 @@
           <item title='2019我适合从事什么工作？' eva='2917' discuss="507" rate='98.7%'></item>
         </div>
       </div>
-      <div style="height: 60px;"></div>
     </div>
   </page>
 </template>
@@ -68,12 +67,10 @@ import navPanel from './navPanel.vue'
 import item from './item.vue'
 
 export default {
-  name: 'home',
   data: ()=> ({
     bg: '//r.51gjj.com/resource/jr/fate/fate_bg.png',
   }),
   components: {
-    lazyImg: ()=> import ('../../components/LazyImg.vue'),
     topPanel,
     moreTitle,
     navPanel,
@@ -122,7 +119,7 @@ export default {
       width: 100%;
     }
     &:active {
-      opacity: .8
+      opacity: .8;
     }
   }
 }

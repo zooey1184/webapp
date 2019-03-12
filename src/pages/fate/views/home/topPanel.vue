@@ -62,10 +62,7 @@ export default {
         icon: peidui
       }
     ]
-  }),
-  components: {
-    lazyImg: ()=> import ('../../components/LazyImg.vue')
-  }
+  })
 }
 </script>
 
@@ -76,6 +73,7 @@ export default {
   justify-content: space-around;
   flex-wrap: wrap;
   padding: 0 18px;
+  
 }
 .top_item {
   padding: 10px 16px;

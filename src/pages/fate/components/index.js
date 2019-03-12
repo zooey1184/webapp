@@ -1,4 +1,5 @@
 import page from '@/components/PageWrap/src/index'
+import LazyImg from './LazyImg.vue'
 import toast from '@/components/toast/src/toast.vue'
 import load from '@/components/loading/src/load'
 import plugin from '@/components/mixins/plugin'
@@ -37,7 +38,8 @@ const Mask = plugin(mask, {
   fullClassName: 'mark--full'
 })
 const components = [
-  page
+  page,
+  LazyImg
 ]
 
 const install = function (Vue) {

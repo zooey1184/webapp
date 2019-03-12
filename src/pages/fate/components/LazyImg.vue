@@ -1,6 +1,6 @@
 <template>
   <transition name='fade'>
-    <img :src="img" class="lazy_img" :style="stylePanel" :key='1' alt="" v-show='showIMG'>
+    <img :src="img" class="lazy_img" :style="stylePanel" :key='1' v-show='showIMG'>
     <!-- <div v-show='!showIMG' class="lazy_img" :style="stylePanel" :key='2'></div> -->
   </transition>
 </template>

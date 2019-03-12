@@ -13,7 +13,7 @@
         <loading-page></loading-page>
       </slot>
     </div>
-    <div class="pageWrap_wrap" v-show="state=='error'" :style="{background: '#fff'}" :key="2">
+    <div class="pageWrap_wrap" v-if="state=='error'" :style="{background: '#fff'}" :key="2">
       <slot name='fail'>
         <fail-page :tip="tip"></fail-page>
       </slot>
@@ -90,6 +90,7 @@ export default {
     bottom: 0;
     left: 0;
     height: 60px;
+    z-index: 1;
   }
 }
 

@@ -1,16 +1,17 @@
 <template>
   <page :footer='50'>
-    <!-- <components :is='active'></components> -->
-    <home v-show='active=="home"'></home>
-    <fate v-show='active=="fate"'></fate>
-    <master v-show='active=="master"'></master>
-    <mine v-show='active=="mine"'></mine>
+    <div>
+      <home v-show='active=="home"'></home>
+      <fate v-show='active=="fate"'></fate>
+      <master v-show='active=="master"'></master>
+      <mine v-show='active=="mine"'></mine>
+    </div>
     <footer-panel slot='footer' @change='pick' :active='active'></footer-panel>
   </page>
 </template>
 
 <script>
-import footerPanel from './footerPanel'
+import footerPanel from './footerPanel.vue'
 
 export default {
   name: 'home-page',
@@ -18,10 +19,10 @@ export default {
     active: 'home'
   }),
   components: {
-    home: ()=> import ('./home'),
-    fate: ()=> import ('../fate'),
-    master: ()=> import ('../master'),
-    mine: ()=> import ('../mine'),
+    home: ()=> import ('./home.vue'),
+    fate: ()=> import ('../fate/index.vue'),
+    master: ()=> import ('../master/index.vue'),
+    mine: ()=> import ('../mine/index.vue'),
     footerPanel
   },
   methods: {
@@ -48,6 +49,8 @@ export default {
         } else {
           this.change('home')
         }
+      } else {
+        this.change('home')
       }
     }
   },

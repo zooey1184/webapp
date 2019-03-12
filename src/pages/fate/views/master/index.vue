@@ -1,5 +1,7 @@
 <template>
-  <div>
-    master
-  </div>
+  <page>
+    <div>
+      master 
+    </div>
+  </page>
 </template>

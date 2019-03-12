@@ -117,6 +117,6 @@ export default {
   opacity: 0;
 }
 .bounce_radio-enter-active, .bounce_radio-leave-active {
-  transition: all .3s ease-out;
+  transition: all .25s ease-out;
 }
 </style>

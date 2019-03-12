@@ -26,8 +26,9 @@
       <span class="title">请输入出生日期</span>
       <input type="text" @click='pickTimeFn' class="input_item f_g1" readonly v-model='born'>
     </div>
+    <button class="btn">立即测算</button>
     <picker ref="picker" :data="pickDate" :selectedIndex="[0,0,0]" @change="changeFn" @select="selectFn">
-      <span slot='title' @click='changeDateFn'>{{dateType.value}}</span>
+      <span slot='title' @click='changeDateFn'>{{dateType.text}}</span>
     </picker>
   </div>
 </template>
@@ -59,15 +60,16 @@ export default {
     changeDateFn() {
       if(this.dateType.value=='nongli') {
         this.dateType = {
-          text: '切换新历',
+          text: '切换到农历',
           value: 'xinli'
         }
       }else{
         this.dateType = {
-          text: '切换农历',
+          text: '切换到新历',
           value: 'nongli'
         }
       }
+      this.init()
     }
   },
   mounted() {
@@ -81,7 +83,7 @@ export default {
   width: 100%;
   display: block;
   margin: 0 auto;
-  border: 1px solid #aaa;
+  // border: 1px solid #aaa;
   border-radius: 10px;
   padding: 10px;
   box-shadow: 0 0 15px #ccc;
@@ -106,6 +108,18 @@ export default {
     .radio_panel {
       position: relative;
     }
+  }
+  .btn {
+    position: relative;
+    margin: 0 auto;
+    width: 40%;
+    box-sizing: border-box;
+    height: 40px;
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    font-size: 15px;
+    display: block;
   }
 }
 </style>

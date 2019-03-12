@@ -6,7 +6,7 @@ export default {
     m: null,
     d: null,
     dateType: {
-      text: '切换农历',
+      text: '切换到农历',
       value: 'xinli'
     }
   }),
@@ -29,10 +29,8 @@ export default {
           let t = new Date()
           let rangeY = 100
           let current_y = t.getFullYear()
-          let start_y = current_y - rangeY
           let data_y = []
           let data_m = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-          let date_m_n = ['一', '二', '三', '四', '五', '六', '七', '八', '九', '十', '十一', '十二']
           let data_d = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28]
           let d_29 = [29]
           let d_30 = [29, 30]
@@ -98,7 +96,7 @@ export default {
           let rangeY = 100
           let current_y = t.getFullYear()
           let data_y = []
-          let date_m_n = ['一', '二', '三', '四', '五', '六', '七', '八', '九', '十', '十一', '十二']
+          let date_m_n = ['正', '二', '三', '四', '五', '六', '七', '八', '九', '十', '十一', '腊']
           let date_d = ['初一','初二','初三','初四', '初五','初六','初七','初八','初九','初十','十一','十二','十三','十四','十五',
           '十六', '十七','十八','十九','二十','二十一','二十二','二十三','二十四','二十五','二十六','二十七','二十八','二十九','三十']
           for (let i = 0; i < rangeY; i++) {
@@ -146,6 +144,7 @@ export default {
       } else {
         this.dayList = p.d31
       }
+      return this.dayList
     },
     changeFn(i, e) {
       let type = this.dateType.value

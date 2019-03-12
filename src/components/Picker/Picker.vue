@@ -258,6 +258,7 @@
     text-align: center
     font-size: $fontsize-medium
     background-color: $color-mask-bgc
+    
     &.picker-fade-enter, &.picker-fade-leave-active
       opacity: 0
     &.picker-fade-enter-active, &.picker-fade-leave-active
@@ -270,6 +271,7 @@
       width: 100%
       height: 233px
       background: $color-white
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.06) inset
       &.picker-move-enter, &.picker-move-leave-active
         transform: translate3d(0, 273px, 0)
       &.picker-move-enter-active, &.picker-move-leave-active

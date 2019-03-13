@@ -2,6 +2,8 @@ import Vue from 'vue'
 import Router from '@/common/js/router-esm'
 import store from '../store/index.js'
 import home from './home'
+import login from './login'
+
 Vue.use(Router)
 
 const router = new Router({
@@ -16,7 +18,8 @@ const router = new Router({
         title: '404'
       }
     },
-    ...home
+    ...home,
+    ...login
   ]
 })
 router.beforeEach((to, from, next) => {

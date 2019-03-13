@@ -43,13 +43,19 @@ export default {
 @import url('../../common/css/transition.less');
 @import url('../../common/css/flex.less');
 @import url('../../common/css/app.less');
+@import url('../../common/css/js.less');
 .generate-columns(20);
-
+.detailPageClass {
+  .gradient(background, 180deg, #fff, #fafafa);
+}
 .generate-columns(@n, @i: 1) when (@i =< @n) {
   .grid-@{i} {
     width: (@i * 100% / @n);
     position: relative;
   }
   .generate-columns(@n, (@i + 1));
+}
+.txt_c {
+  text-align: center
 }
 </style>

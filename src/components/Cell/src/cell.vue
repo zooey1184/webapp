@@ -5,7 +5,7 @@
         <p v-if='title'>{{title}}</p>
         <slot v-else name='left'></slot>
       </div>
-      <div class="middle">
+      <div class="middle" v-if='showContent'>
         <slot></slot>
       </div>
       <div class="right" :style='rightContent'>
@@ -84,9 +84,9 @@ export default {
       default: ()=> ({})
     },
     lineAni: {
-      type: Boolean,
-      default: true,
-    }
+      type: Boolean
+    },
+    showContent: Boolean
   }
 }
 </script>

@@ -14,5 +14,13 @@ export default [
     meta: {
       title: '详情'
     }
+  },
+  {
+    path: '/paying',
+    name: 'paying',
+    component: () => import('../views/paying/index.vue'),
+    meta: {
+      title: '支付详情'
+    }
   }
 ]

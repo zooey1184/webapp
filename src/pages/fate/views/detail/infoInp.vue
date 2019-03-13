@@ -1,6 +1,7 @@
 <template>
   <div class="info_wrap">
-    <p>this is desc</p>
+    <lazy-img :img='infoImg'  :styleBefore='{zIndex: -1, bottom: 0}'></lazy-img>
+    <p style="font-size:12px; color: #4A4A4A">请务必提供准确的信息给到老师！测评以输入信息为准！</p>
     <div class="inp_content flex f_a_c">
       <span class="title">请输入您的大名</span>
       <input type="text" class="input_item f_g1" v-model='name'>
@@ -27,6 +28,7 @@
       <input type="text" @click='pickTimeFn' class="input_item f_g1" readonly v-model='born'>
     </div>
     <button class="btn">立即测算</button>
+    
     <picker ref="picker" :data="pickDate" :selectedIndex="[0,0,0]" @change="changeFn" @select="selectFn">
       <span slot='title' @click='changeDateFn'>{{dateType.text}}</span>
     </picker>
@@ -37,11 +39,13 @@
 import radio from '../../components/radio/index.vue'
 import date from '../../common/mixins/date'
 import picker from '@/components/Picker/Picker.vue'
+import infoImg from '../../assets/info_panel_bg.png'
 
 export default {
   data: ()=> ({
     name: '',
     sex: '',
+    infoImg: infoImg,
     born: ''
   }),
   components: {
@@ -83,11 +87,13 @@ export default {
   width: 100%;
   display: block;
   margin: 0 auto;
+  position: relative;
   // border: 1px solid #aaa;
   border-radius: 10px;
   padding: 10px;
   box-shadow: 0 0 15px #ccc;
   .inp_content {
+    margin: 14px 0;
     .title {
       display: inline-block;
       vertical-align: middle;
@@ -120,6 +126,8 @@ export default {
     border-radius: 30px;
     font-size: 15px;
     display: block;
+    background: #D1342C;
+    color: #fff;
   }
 }
 </style>

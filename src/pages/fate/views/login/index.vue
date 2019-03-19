@@ -1,7 +1,7 @@
 <template>
   <page>
     <div>
-      <!-- <lazy-img :img='loginImg' pos='relative'></lazy-img> -->
+      <lazy-img :img='loginImg' pos='relative'></lazy-img>
       <div style="margin: 0 32px">
         <div class="flex f_a_c login_item">
           <p class="left_pane f_s0">手机号</p>

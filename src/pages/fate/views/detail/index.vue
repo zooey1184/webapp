@@ -9,7 +9,7 @@
         <p class="txt">
           站在人生的岔路口，有时候钱和事业并不能两存，一份不合适的工作，可能会让你赚钱很辛苦，甚至赚得很少，所以找到适合自己的行业和岗位很重要。你知道自己朝哪方面发展会更加顺利吗？对于你来说做什么工作会最赚钱呢？
         </p>
-        <lazy-img :img='detailImg' :styleBefore='{zIndex: -1, bottom: "-50px"}'></lazy-img>
+        <lazy-img :img='detailImg' :styleBefore='{ bottom: "-50px"}'></lazy-img>
       </div>
       <div style="padding: 20px;">
         <info-inp></info-inp>
@@ -48,6 +48,7 @@ export default {
     position: relative;
     text-indent:2em;
     padding: 0 20px;
+    z-index: 2;
   }
   .detail_title {
     position: relative;

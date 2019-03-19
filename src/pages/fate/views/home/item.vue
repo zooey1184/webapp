@@ -1,12 +1,14 @@
 <template>
-  <div class="home_item underline">
-    <p>{{title}}</p>
-    <div class="txt">
-      <span class="txt_item" style="width: 80px;">{{eva}}测评</span>
-      <span class="txt_item">{{discuss}}评论</span>
-      <span class="txt_item right_item">好评率{{rate}}</span>
+  <wave-wrap>
+    <div class="home_item underline">
+      <p>{{title}}</p>
+      <div class="txt">
+        <span class="txt_item" style="width: 80px;">{{eva}}测评</span>
+        <span class="txt_item">{{discuss}}评论</span>
+        <span class="txt_item right_item">好评率{{rate}}</span>
+      </div>
     </div>
-  </div>
+  </wave-wrap>
 </template>
 
 <script>

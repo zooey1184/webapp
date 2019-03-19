@@ -1,7 +1,7 @@
 <template>
   <page :styleWrap='{background: "#F4F4F4"}'>
     <div>
-      <lazy-img :img='bg' :styleBefore='{zIndex: -1}'></lazy-img>
+      <lazy-img :img='bg' :styleBefore='{zIndex: 0}'></lazy-img>
       <nav-panel></nav-panel>
       <top-panel></top-panel>
 
@@ -52,7 +52,7 @@
       <div style="padding: 0 16px; margin-top: 32px">
         <more-title title='更多测算' more='全部测算'></more-title>
         <div style="margin-top: 4px;">
-          <item title='2019我适合从事什么工作？' eva='2917' discuss="507" rate='98.7%'></item>
+          <item title='2019我适合从事什么工作？' eva='2917' discuss="507" rate='98.7%' @click.native='$router.push("/detail")'></item>
           <item title='2019我适合从事什么工作？' eva='2917' discuss="507" rate='98.7%'></item>
         </div>
       </div>

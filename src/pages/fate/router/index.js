@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from '@/common/js/router-esm'
 import store from '../store/index.js'
 import home from './home'
+import mine from './mine'
 import login from './login'
 
 Vue.use(Router)
@@ -19,7 +20,8 @@ const router = new Router({
       }
     },
     ...home,
-    ...login
+    ...login,
+    ...mine
   ]
 })
 router.beforeEach((to, from, next) => {

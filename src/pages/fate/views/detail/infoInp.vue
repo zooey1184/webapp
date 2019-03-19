@@ -1,6 +1,6 @@
 <template>
   <div class="info_wrap">
-    <lazy-img :img='infoImg'  :styleBefore='{zIndex: -1, bottom: 0}'></lazy-img>
+    <lazy-img :img='infoImg'  :styleBefore='{zIndex: 0, bottom: 0}'></lazy-img>
     <p style="font-size:12px; color: #4A4A4A">请务必提供准确的信息给到老师！测评以输入信息为准！</p>
     <div class="inp_content flex f_a_c">
       <span class="title">请输入您的大名</span>
@@ -59,7 +59,8 @@ export default {
       this.born = v.join(' ')
     },
     pickTimeFn() {
-      this.$refs.picker.show()
+      // this.$refs.picker.show()
+      this.$toast.show('选择时间')
     },
     changeDateFn() {
       if(this.dateType.value=='nongli') {
@@ -94,11 +95,13 @@ export default {
   box-shadow: 0 0 15px #ccc;
   .inp_content {
     margin: 14px 0;
+    z-index: 3;
     .title {
       display: inline-block;
       vertical-align: middle;
       min-width: 80px;
       margin-right: 5px;
+      z-index: 3;
     }
     .input_item {
       display: inline-block;

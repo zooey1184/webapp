@@ -56,8 +56,8 @@ export default {
   height: 100%;
   overflow: hidden;
   max-width: 600px;
-  left: 50%;
-  transform: translateX(-50%);
+  // left: 50%;
+  // transform: translateX(-50%);
 }
 .page__wrap {
   .full_pages;

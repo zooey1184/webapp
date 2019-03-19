@@ -1,17 +1,10 @@
 <template>
-  <div class="comment_item">
-    <div class="flex f_a_c f_j_sb">
-      <div class="flex f_a_c">
-        <slot name='img'></slot>
-        <h4>{{title}}</h4>
-      </div>
-      <slot name='arrow'>
-        <p>{{date}}</p>
-      </slot>
+  <div class="flex f_a_c">
+    <slot name='left'></slot>
+    <div class="flex f_a_c f_j_sb f_g1" :class="{underline: showLine}" :style='styleContent'>
+      <p>{{title}}</p>
+      <img style='width: 10px; margin-right: 16px' src="../assets/arrow.png" alt="">
     </div>
-    <slot name='desc'>
-      <p class="desc" :style='descSty'>{{desc}}</p>
-    </slot>
   </div>
 </template>
 
@@ -19,47 +12,23 @@
 export default {
   props: {
     title: String,
-    date: String,
-    desc: String,
-    styleDesc: {
-      type: Object,
-      default: ()=> ({})
+    height: {
+      type: [Number, String],
+      default: '48'
+    },
+    showLine: {
+      type: Boolean,
+      default: true
     }
   },
   computed: {
-    descSty: function() {
+    styleContent: function() {
       let obj = {
-        position: 'relative'
+        height: `${this.height}px`
       }
-      Object.assign(obj, this.styleDesc)
       return obj
     }
   }
 }
 </script>
 
-<style lang="less">
-.comment_item {
-  padding: 0 20px;
-}
-.icon_header {
-  width: 26px;
-  margin-right: 5px;
-}
-.desc {
-  margin-left: 31px;
-  position: relative;
-  line-height: 20px;
-  padding-bottom: 5px;
-  word-break: break-all;
-  &::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    bottom: 0;
-    left: 0;
-    height: 1px;
-    background: #bbb;
-  }
-}
-</style>

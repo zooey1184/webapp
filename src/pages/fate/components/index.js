@@ -5,6 +5,7 @@ import load from '@/components/loading/src/load'
 import plugin from '@/components/mixins/plugin'
 import ajax from '@/components/AjaxPro'
 import mask from '@/components/markPro/src/mark'
+import login from './login.vue'
 
 const Toast = plugin(toast, {
   initOptions: {
@@ -37,6 +38,11 @@ const Mask = plugin(mask, {
   showName: 'showToast',
   fullClassName: 'mark--full'
 })
+const lg = plugin(login, {
+  name: 'login',
+  showName: 'showLogin',
+  fullClassName: 'full_loginWrap'
+})
 const components = [
   page,
   LazyImg
@@ -49,6 +55,7 @@ const install = function (Vue) {
   Vue.use(Load)
   Vue.use(ajax)
   Vue.use(Mask)
+  Vue.use(lg)
 }
 
 if (typeof window !== 'undefined' && window.Vue) {

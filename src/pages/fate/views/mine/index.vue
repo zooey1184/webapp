@@ -1,7 +1,7 @@
 <template>
-  <page>
+  <page :styleWrap='{background: "rgba(240,240,240,.3)"}'>
     <div>
-      <lazy-img :img='bg'></lazy-img>
+      <lazy-img :img='bg' :styleBefore='{zIndex: -1}'></lazy-img>
       <img class="mg_c title_img" src="../../assets/person_title.png" alt="">
       <div>
         <item title='login' style='padding: 20px 0' :showLine='false'>

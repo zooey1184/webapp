@@ -1,9 +1,10 @@
 <template>
-  <page :classWrap='{detailPageClass: true}'>
-    <div>
-      <lazy-img :img='payingImg' :styleBefore='{zIndex: -1}'></lazy-img>
-      <div>
-        <p class="left_time">jishitejia:<left-time @over='overFn'></left-time></p>
+  <page :styleWrap='{background: "rgba(240, 240, 240, 1)"}'>
+    <div class="paying_page">
+      <lazy-img :img='payingImg' :styleBefore='{zIndex: 0, top: 0}'></lazy-img>
+      <div style="zIndex: 3; position: relative">
+        
+        <p class="left_time">吉时特价:<left-time @over='overFn'></left-time></p>
         <p class="sale_price_title txt_c">吉时特价</p>
         <h2 class="price_panel">￥{{price}}</h2>
         <p class="txt_c">
@@ -12,6 +13,7 @@
         </p>
       </div>
       <p class="choose_pay_title">选择支付方式</p>
+      
       <cell-wrap :styleWrap='{padding: "0 20px"}' :lineAni='false' :height='64'>
         <cell :width='130' :rightStyle='{right: "20px"}'>
           <div slot='left' class="flex f_a_c">
@@ -52,42 +54,45 @@ export default {
 }
 </script>
 
-<style lang="less">
-.left_time {
-  color: #9B9B9B;
-  text-align: center;
-  margin: 10px 0;
-}
-.sale_price_title {
-  margin-bottom: 16px;
-  margin-top: 32px;
-  font-size: 16px;
-  color: #D1342C;
-}
-.price_panel {
-  text-align: center;
-  color: #333333;
-  font-size: 48px;
-}
-.origin_price {
-  text-decoration:line-through;
-  color: #9B9B9B;
-}
-.choose_pay_title {
-  color: #333333;
-  margin-top: 72px;
-  position: relative;
-  font-size: 16px;
-  padding-left: 16px;
-  height: 40px;
-  &::after {
-    position: absolute;
-    bottom: 0;
-    content: "";
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background: #eee;
+<style scoped lang="less">
+.paying_page {
+  .left_time {
+    color: #9B9B9B;
+    text-align: center;
+    margin: 10px 0;
+  }
+  .sale_price_title {
+    margin-bottom: 16px;
+    margin-top: 32px;
+    font-size: 16px;
+    color: #D1342C;
+  }
+  .price_panel {
+    text-align: center;
+    color: #333333;
+    font-size: 48px;
+    z-index: 4;
+  }
+  .origin_price {
+    text-decoration:line-through;
+    color: #9B9B9B;
+  }
+  .choose_pay_title {
+    color: #333333;
+    margin-top: 72px;
+    position: relative;
+    font-size: 16px;
+    padding-left: 16px;
+    height: 40px;
+    &::after {
+      position: absolute;
+      bottom: 0;
+      content: "";
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: #eee;
+    }
   }
 }
 </style>

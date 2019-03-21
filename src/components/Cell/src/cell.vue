@@ -1,14 +1,14 @@
 <template>
-  <div class="c-cellItem" :class='{underlineF: showUnderline}' ref='cell' :style='wrapContent'>
+  <div class="c-cellItem" :class='{underlineF: showLine=="part", underlineFull: showLine=="full"}' ref='cell' :style='wrapContent'>
     <div :class="{line_slide: lineAnimate}">
-      <div class="left" :style='letfContent'>
+      <div class="cell_left" :style='letfContent'>
         <p v-if='title'>{{title}}</p>
         <slot v-else name='left'></slot>
       </div>
-      <div class="middle" v-if='showContent'>
+      <div class="cell_middle" v-if='showContent'>
         <slot></slot>
       </div>
-      <div class="right" :style='rightContent'>
+      <div class="cell_right" :style='rightContent'>
         <slot name='right'>
           <img class="arrow" src="../assets/arrow.png" alt="">
         </slot>
@@ -56,6 +56,17 @@ export default {
     rightContent: function() {
       let obj = this.rightStyle
       return obj
+    },
+    showLine: function() {
+      let attr = this.getAttr()
+      let a = this.fullLine || attr.fullLine
+      let b = this.underLine || attr.underLine
+      if(a) {
+        return 'full'
+      }
+      if(b) {
+        return 'part'
+      }
     }
   },
   props: {
@@ -71,7 +82,7 @@ export default {
       type: Number,
       default: 0,
     },
-    showUnderline: {
+    underLine: {
       type: Boolean,
       default: true,
     },
@@ -86,7 +97,11 @@ export default {
     lineAni: {
       type: Boolean
     },
-    showContent: Boolean
+    fullLine: Boolean,
+    showContent: {
+      type: Boolean,
+      default: true
+    }
   }
 }
 </script>
@@ -110,12 +125,12 @@ export default {
   .line_slide {
     .underline_slide
   }
-  .left, .middle, .right {
+  .cell_left, .cell_middle, .cell_right {
     display: inline-block;
     vertical-align: middle;
     height: 100%;
   }
-  .middle {
+  .cell_middle {
     position: relative;
     height: inherit;
     min-width: 180px;
@@ -130,7 +145,7 @@ export default {
       background: transparent
     }
   }
-  .right {
+  .cell_right {
     position: absolute;
     right: 0;
     height: 100%;

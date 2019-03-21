@@ -11,51 +11,49 @@ export default {
     }
   }),
   methods: {
-    getDatePick() {
+    getDatePick () {
       class DatePick {
-        dataDeal(data, text = '') {
+        dataDeal (data, text = '') {
           let arr = []
           for (let i = 0; i < data.length; i++) {
             let obj = {
-              text: `${i+1}${text}`,
+              text: `${i + 1}${text}`,
               value: i + 1
             }
             arr.push(obj)
           }
           return arr
         }
-        initDate() {
+        initDate () {
           let self = this
           let t = new Date()
           let rangeY = 100
-          let current_y = t.getFullYear()
-          let data_y = []
-          let data_m = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-          let data_d = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28]
-          let d_29 = [29]
-          let d_30 = [29, 30]
-          let d_31 = [29, 30, 31]
+          let currentY = t.getFullYear()
+          let dataY = []
+          let dataM = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+          let dataDay = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28]
+          let nonthDay29 = [29]
+          let nonthDay30 = [29, 30]
+          let nonthDay31 = [29, 30, 31]
           for (let i = 0; i < rangeY; i++) {
             let obj = {
-              text: `${current_y-i}年`,
-              value: current_y - i
+              text: `${currentY - i}年`,
+              value: currentY - i
             }
-            data_y.push(obj)
+            dataY.push(obj)
           }
           return {
-            y: data_y,
-            m: self.dataDeal(data_m, '月'),
-            d28: self.dataDeal(data_d, '日'),
-            d29: self.dataDeal([...data_d, ...d_29], '日'),
-            d30: self.dataDeal([...data_d, ...d_30], '日'),
-            d31: self.dataDeal([...data_d, ...d_31], '日')
+            y: dataY,
+            m: self.dataDeal(dataM, '月'),
+            d28: self.dataDeal(dataDay, '日'),
+            d29: self.dataDeal([...dataDay, ...nonthDay29], '日'),
+            d30: self.dataDeal([...dataDay, ...nonthDay30], '日'),
+            d31: self.dataDeal([...dataDay, ...nonthDay31], '日')
           }
         }
-        getDay(y, m = 1) {
+        getDay (y, m = 1) {
           let d = 30
           let most = [1, 3, 5, 7, 8, 10, 12]
-          let less = [4, 6, 9, 11]
-          let lest = 2
           if (m === 2) {
             if (y % 4 === 0) {
               d = 29
@@ -77,9 +75,9 @@ export default {
       }
       return new DatePick()
     },
-    nongliFn() {
+    nongliFn () {
       class NongLi {
-        dataDeal(data, text = '') {
+        dataDeal (data, text = '') {
           let arr = []
           for (let i = 0; i < data.length; i++) {
             let obj = {
@@ -90,63 +88,61 @@ export default {
           }
           return arr
         }
-        initDate() {
+        initDate () {
           let self = this
           let t = new Date()
           let rangeY = 100
-          let current_y = t.getFullYear()
-          let data_y = []
-          let date_m_n = ['正', '二', '三', '四', '五', '六', '七', '八', '九', '十', '十一', '腊']
-          let date_d = ['初一','初二','初三','初四', '初五','初六','初七','初八','初九','初十','十一','十二','十三','十四','十五',
-          '十六', '十七','十八','十九','二十','二十一','二十二','二十三','二十四','二十五','二十六','二十七','二十八','二十九','三十']
+          let currentY = t.getFullYear()
+          let dataY = []
+          let dateMonth = ['正', '二', '三', '四', '五', '六', '七', '八', '九', '十', '十一', '腊']
+          let dateDay = ['初一', '初二', '初三', '初四', '初五', '初六', '初七', '初八', '初九', '初十', '十一', '十二', '十三', '十四', '十五', '十六', '十七', '十八', '十九', '廿十', '廿十一', '廿十二', '廿十三', '廿十四', '廿十五', '廿十六', '廿十七', '廿十八', '廿十九', '卅十']
           for (let i = 0; i < rangeY; i++) {
             let obj = {
-              text: `${current_y-i}年`,
-              value: current_y - i
+              text: `${currentY - i}年`,
+              value: currentY - i
             }
-            data_y.push(obj)
+            dataY.push(obj)
           }
           return {
-            y: data_y,
-            m: self.dataDeal(date_m_n, '月'),
-            d: self.dataDeal(date_d, '')
+            y: dataY,
+            m: self.dataDeal(dateMonth, '月'),
+            d: self.dataDeal(dateDay, '')
           }
         }
       }
       return new NongLi()
     },
 
-    init() {
+    init () {
       let p = null
       let d = null
-      if(this.dateType.value=='nongli') {
+      if (this.dateType.value === 'nongli') {
         p = this.nongliFn().initDate()
         d = p.d
-      }else {
+      } else {
         p = this.getDatePick().initDate()
         this.watchDay()
         d = this.dayList
       }
       this.y = this.y ? this.y : p.y[0].value
       this.m = this.m ? this.y : p.m[0].value
-      
       this.pickDate = [p.y, p.m, d]
     },
-    watchDay() {
+    watchDay () {
       let p = this.getDatePick().initDate()
       let d = this.getDatePick().getDay(this.y, this.m)
-      if (d == 28) {
+      if (d === 28) {
         this.dayList = p.d28
-      } else if (d == 29) {
+      } else if (d === 29) {
         this.dayList = p.d29
-      } else if (d == 30) {
+      } else if (d === 30) {
         this.dayList = p.d30
       } else {
         this.dayList = p.d31
       }
       return this.dayList
     },
-    changeFn(i, e) {
+    changeFn (i, e) {
       let type = this.dateType.value
       let p = type === 'nongli' ? this.nongliFn().initDate() : this.getDatePick().initDate()
       let d = type === 'nongli' ? p.d : this.watchDay()

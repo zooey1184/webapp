@@ -67,6 +67,10 @@ export default {
   },
   methods: {
     pick(item) {
+      navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
+      if (navigator.vibrate) {
+        navigator.vibrate(20);
+      }
       this.$emit('change', item)
     }
   }

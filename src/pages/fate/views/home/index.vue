@@ -1,5 +1,5 @@
 <template>
-  <page :footer='50'>
+  <page :footer='50'  :styleWrap='{background: "rgba(0,0,0,0)"}'>
     <div>
       <home v-show='active=="home"'></home>
       <fate v-show='active=="fate"'></fate>

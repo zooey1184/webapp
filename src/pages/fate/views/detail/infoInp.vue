@@ -7,16 +7,18 @@
       <input type="text" class="input_item f_g1" v-model='name'>
     </div>
     <div class="inp_content flex f_a_c">
-      <span class="title">请选择您的姓名</span>
+      <span class="title">请选择您的性别</span>
       <div class="radio_panel flex f_a_c">
         <div class="flex f_a_c">
-          <p>男性</p>
+          <img style="width: 15px;" src="../../assets/male.png" alt="">
+          <p class="txt_sex">男性</p>
           <radio :pick='sex'>
             <input type="radio" name="sex" value='male' v-model='sex'>
           </radio>
         </div>
-        <div class="flex f_a_c">
-          <p>女性</p>
+        <div class="flex f_a_c" style="margin-left: 10px">
+          <img style="width: 15px;" src="../../assets/female.png" alt="">
+          <p class="txt_sex">女性</p>
           <radio :pick='sex'>
             <input type="radio" name="sex" value='female' v-model='sex'>
           </radio>
@@ -25,13 +27,9 @@
     </div>
     <div class="inp_content flex f_a_c">
       <span class="title">请输入出生日期</span>
-      <input type="text" @click='pickTimeFn' class="input_item f_g1" readonly v-model='born'>
+      <input type="text" @click='pickTimeFn' class="input_item f_g1" readonly v-model='date'>
     </div>
-    <button class="btn">立即测算</button>
-    
-    <picker ref="picker" :data="pickDate" :selectedIndex="[0,0,0]" @change="changeFn" @select="selectFn">
-      <span slot='title' @click='changeDateFn'>{{dateType.text}}</span>
-    </picker>
+    <button class="btn" @click='goPaying'>立即测算</button>
   </div>
 </template>
 
@@ -52,33 +50,17 @@ export default {
     radio,
     picker
   },
+  props: {
+    date: String
+  },
   mixins: [date],
   methods: {
-    selectFn(i, e, v) {
-      console.log(v);
-      this.born = v.join(' ')
-    },
     pickTimeFn() {
-      // this.$refs.picker.show()
-      this.$toast.show('选择时间')
+      this.$emit('pickDate')
     },
-    changeDateFn() {
-      if(this.dateType.value=='nongli') {
-        this.dateType = {
-          text: '切换到农历',
-          value: 'xinli'
-        }
-      }else{
-        this.dateType = {
-          text: '切换到新历',
-          value: 'nongli'
-        }
-      }
-      this.init()
+    goPaying() {
+      this.$router.push('/paying')
     }
-  },
-  mounted() {
-    this.init()
   }
 }
 </script>
@@ -89,7 +71,6 @@ export default {
   display: block;
   margin: 0 auto;
   position: relative;
-  // border: 1px solid #aaa;
   border-radius: 10px;
   padding: 10px;
   box-shadow: 0 0 15px #ccc;
@@ -99,7 +80,7 @@ export default {
     .title {
       display: inline-block;
       vertical-align: middle;
-      min-width: 80px;
+      min-width: 100px;
       margin-right: 5px;
       z-index: 3;
     }
@@ -131,6 +112,12 @@ export default {
     display: block;
     background: #D1342C;
     color: #fff;
+    &:active {
+      opacity: .8;
+    }
+  }
+  .txt_sex {
+    padding: 0 3px;
   }
 }
 </style>

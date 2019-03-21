@@ -1,5 +1,5 @@
 <template>
-  <page>
+  <page :styleWrap='{background: "#fff"}'>
     <div>
       <lazy-img :img='loginImg' pos='relative'></lazy-img>
       <div style="margin: 0 32px">
@@ -21,27 +21,32 @@
           </div>
         </div>
       </div>
-      <button class="login_btn">立即登录</button>
+      <button class="login_btn" @click='submitFn'>立即登录</button>
     </div>
   </page>
 </template>
 
 <script>
 import loginImg from '../../assets/login_bg.png'
-import inputItem from './inputItem.vue'
 import countDown from '@/components/CountDown'
+import { setTimeout } from 'timers';
 
 export default {
   name: 'login-page',
   data: ()=> ({
     loginImg,
     tel_msg: '',
-    code_msg: ''
+    code_msg: '',
+    loginState: false
   }),
   components: {
-    inputItem,
     countDown
-  }
+  },
+  methods: {
+    submitFn() {
+      this.$login.show()
+    }
+  },
 }
 </script>
 

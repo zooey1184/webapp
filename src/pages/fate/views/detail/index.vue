@@ -1,4 +1,5 @@
 <template>
+<div>
   <page :classWrap='{detailPageClass: true}'>
     <div class="detail_wrap">
       <div class="detail_title" style="padding: 20px;">
@@ -12,12 +13,16 @@
         <lazy-img :img='detailImg' :styleBefore='{ bottom: "-50px"}'></lazy-img>
       </div>
       <div style="padding: 20px;">
-        <info-inp></info-inp>
+        <info-inp @pickDate='pickTimeFn' :date='born'></info-inp>
       </div>
       <h3 class="comment_title">评论</h3>
       <comment></comment>
     </div>
   </page>
+  <picker ref="picker" :data="pickDate" :selectedIndex="[0,0,0]" @change="changeFn" @select="selectFn">
+    <span slot='title' @click='changeDateFn'>{{dateType.text}}</span>
+  </picker>
+</div>
 </template>
 
 <script>
@@ -25,16 +30,47 @@ import infoInp from './infoInp.vue'
 import textPanel from '../../components/textPanel.vue'
 import detailImg from '../../assets/detail_bg.png'
 import comment from './comment.vue'
+import picker from '@/components/Picker/Picker.vue'
+import date from '../../common/mixins/date'
 
 export default {
   components: {
     infoInp,
     textPanel,
-    comment
+    comment,
+    picker
   },
+  mixins: [date],
   data: ()=> ({
-    detailImg: detailImg
-  })
+    detailImg: detailImg,
+    born: ''
+  }),
+  methods: {
+    selectFn(i, e, v) {
+      this.born = v.join(' ')
+    },
+    pickTimeFn() {
+      this.$refs.picker.show()
+      // this.$emit('pickDate')
+    },
+    changeDateFn() {
+      if(this.dateType.value=='nongli') {
+        this.dateType = {
+          text: '切换到农历',
+          value: 'xinli'
+        }
+      }else{
+        this.dateType = {
+          text: '切换到新历',
+          value: 'nongli'
+        }
+      }
+      this.init()
+    }
+  },
+  mounted() {
+    this.init()
+  }
 }
 </script>
 

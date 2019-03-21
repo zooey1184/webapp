@@ -3,7 +3,8 @@
     <div>
       <img class="icon_nav" src="./img/nav_fate.png" alt="">
     </div>
-    <h3>title</h3>
+    <!-- <h3>title</h3> -->
+    <img style="width: 50%" src="../../assets/home_title.png" alt="">
     <div class="nav_msg">
       <img class="icon_nav" src="./img/nav_msg.png" alt="">
       <div class="new_msg_circle" v-if='count'>

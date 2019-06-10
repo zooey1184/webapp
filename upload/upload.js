@@ -5,7 +5,7 @@ const fs = require('fs')
 const needle = require('needle')
 var OSS = require('ali-oss')
 var co = require('co')
-const uploadPath = ''
+const uploadPath = 'https://kaifa.jianbing.com/business/home/demo/post.php'
 module.exports = {
   init (c) {
     console.log(chalk.green(

@@ -26,7 +26,7 @@ const plugin = (tpl, initOptions) => {
       document.body.appendChild(tpl)
 
       Vue.prototype[`$${pName}`] = {
-        show: (options) => {
+        show: (options, callback) => {
           try {
             if (document.getElementsByClassName(fullClassName).length) {
               return
@@ -43,6 +43,9 @@ const plugin = (tpl, initOptions) => {
             $vplugin[showName] = true
           } catch (e) {
             console.log(e || `${pName}出错了`)
+          }
+          if (typeof callback === 'function') {
+            callback($vplugin)
           }
         },
         hide: () => {

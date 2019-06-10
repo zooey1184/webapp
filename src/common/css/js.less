@@ -33,10 +33,10 @@
 // 兼容过渡色 (属性， 角度：90deg, 颜色1， 颜色2)
 .gradient (@val, @deg, @color1: #ff7458, @color2: #f72f53) {
   @{val}: @color1;
-  @{val}: -webkit-linear-gradient(@deg, @color1 , @color2);
-  @{val}: -o-linear-gradient(@deg, @color1, @color2);
-  @{val}: -moz-linear-gradient(@deg, @color1, @color2);
-  @{val}: linear-gradient(@deg, @color1, @color2);
+  @{val}: -webkit-linear-gradient(@deg, @color1 , @color2) !important;
+  @{val}: -o-linear-gradient(@deg, @color1, @color2) !important;
+  @{val}: -moz-linear-gradient(@deg, @color1, @color2) !important;
+  @{val}: linear-gradient(@deg, @color1, @color2) !important;
 }
 
 // 禁止选中

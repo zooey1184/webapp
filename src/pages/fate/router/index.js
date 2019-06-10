@@ -6,7 +6,7 @@ Vue.use(Router)
 
 const router = new Router({
   mode: 'history',
-  base: `/dubao/h5/fate/`,
+  // base: `/dubao/h5/fate/`,
   routes: [
     {
       path: '*',

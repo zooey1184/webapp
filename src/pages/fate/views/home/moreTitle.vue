@@ -27,7 +27,7 @@ export default {
 
 <style lang="less">
 .more_title {
-  h3 {
+  h4 {
     font-size: 16px;
     color: #333333;
     font-weight: 700;

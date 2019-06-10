@@ -4,7 +4,7 @@
       <section class="pageWrap_copntain" ref='pageWrap_contain'>
         <slot></slot>
       </section>
-      <div class="pageWrap_footer" v-if="footer>0" :style="{height: `${footer}px`}" :key='3'>
+      <div class="pageWrap_footer" v-if="footer>0" :style="{height: footer+'px'}" :key='3'>
         <slot name='footer'></slot>
       </div>
     </div>
@@ -34,7 +34,8 @@ export default {
       default: 60
     },
     classWrap: {
-      type: [Array, Object]
+      type: [Array, Object],
+      default: ()=> ([])
     },
     styleWrap: Object,
     state: {
@@ -55,7 +56,7 @@ export default {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  max-width: 600px;
+  max-width: 540px;
   left: 50%;
   transform: translateX(-50%);
 }

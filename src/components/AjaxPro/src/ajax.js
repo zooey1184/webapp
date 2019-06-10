@@ -3,8 +3,8 @@ import { formate, loadFn, toastFn, ajaxLog, setHeader } from './tools'
 const aload = loadFn
 const atoast = toastFn
 
-const request = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP')
 function ajaxPlug (options) {
+  const request = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP')
   class AjaxPlugin {
     constructor (options) {
       this.type = (options.type || 'POST').toUpperCase()

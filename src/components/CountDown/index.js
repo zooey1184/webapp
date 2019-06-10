@@ -7,8 +7,8 @@
  */
 import countDown from './src/countDown.vue'
 
-countDown.install = function (Vue) {
-  Vue.component(countDown.name, countDown)
-}
+// countDown.install = function (Vue) {
+//   Vue.component(countDown.name, countDown)
+// }
 
 export default countDown

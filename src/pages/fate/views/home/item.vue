@@ -1,7 +1,7 @@
 <template>
   <wave-wrap>
     <div class="home_item underline">
-      <p>{{title}}</p>
+      <p class="title">{{title}}</p>
       <div class="txt">
         <span class="txt_item" style="width: 80px;">{{eva}}测评</span>
         <span class="txt_item">{{discuss}}评论</span>

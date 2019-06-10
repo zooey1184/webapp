@@ -63,11 +63,11 @@
       var self = this;
       // this.log("Global init");
       // this.baseSet();
-      // this.SetFont();
+      this.SetFont();
       return this;
     },
     SetFont(v) {
-      var v = v || 750;
+      var v = v || 375;
       let clientRect = function () {
         let posi = {
           w: 375,
@@ -83,10 +83,12 @@
         return posi
       }
       var WH = clientRect()
-      var f = WH.w / 750 * 100;
-      f = f < 50 ? f : 50;
+      var f = WH.w / v * 100;
+      f = f < 100 ? f : 100;
       var html = document.getElementsByTagName('html')[0]
-      html.attr("style", "font-size:" + f + "px !important;");
+      console.log(f)
+      html.style.fontSize = `${f}px`
+      // html.attr("style", "font-size:" + f + "px !important;");
       return this;
     },
     debounce(id, fn, time=100) {
@@ -163,13 +165,6 @@
       }
       return this.baseUrl + s.replace(/\/+/g, '/');
     },
-    Mall: function(e) {
-      var s = "";
-      for (var i = 0; i < arguments.length; i++) {
-        s += "/" + arguments[i];
-      }
-      return this.baseUrl + ("/gjjmall/" + s).replace(/\/+/g, '/');
-    },
     getUrlData: function(u) { //分解地址参数
       var url = u || window.location.href;
       url = url.split("?");
@@ -207,14 +202,7 @@
     toSring: function(s) {
       return JSON.stringify(s);
     },
-    https: function(u) {
-      if (u.indexOf("http") >= 0) {
-        var h = ('https:' == document.location.protocol ? 'https://' : 'http://');
-        return h + u.replace("http://", "").replace("https://", "");
-      } else {
-        return u;
-      }
-    },
+    
     Cookie: function(a, b, t) {
       if (a && b) {
         var exp = new Date();
@@ -230,80 +218,7 @@
         return '';
       }
     },
-    storage: { //本地数据存储
-      val: function(s, v) {
-        if (window.localStorage) {
-          var local = window.localStorage;
-          if (typeof(v) == "undefined") {
-            if (!local.getItem(s)) local.setItem(s, "");
-            return local.getItem(s);
-          } else {
-            return local.setItem(s, v);
-          }
-        } else {
-          return undefined;
-        }
-      },
-      clear: function(s) {
-        if (window.localStorage) {
-          var local = window.localStorage;
-          if (s) {
-            window.localStorage.removeItem(s)
-          } else {
-            window.localStorage.clear()
-          }
-        }
-      }
-    },
-    toArry: function(o) {
-      if (o instanceof Array) {
-        return o;
-      } else if (o instanceof Object) {
-        var _r = [];
-        for (a in o) {
-          _r.push(o[a]);
-        };
-        return _r;
-      }
-      return o;
-    },
-    replace: function(v, d) {
-      for (var key in d) {
-        v = v.replace(new RegExp('{' + key + '}', 'gm'), d[key])
-      }
-      return v;
-    },
-    listenTag: function(mark, tag, c, t) {
-      //mark 为 所有有相关数据的页面分组标记
-      //tag 是 bridge 标记
-      var t = t || 4,
-        _mark = "reloadMark" + mark,
-        _this = this;
-      if (app.isGjj && tag) {
-        app.tag(tag)
-      }
-      Global.storage.val(_mark, "none");
-      _this[_mark] = true;
-
-      function _run(_t) {
-        window.setTimeout(function() {
-          var _mt = Global.storage.val(_mark);
-          // console.log("check",mark)
-          if (_mt && _mt != "none") {
-            console.log(mark, "reload success");
-            window.setTimeout(function() {
-              Global.storage.val(_mark, "none");
-              _run(t);
-            }, 1.1 * t * 1000)
-            if (c) c(_mt);
-          } else {
-            _run(t)
-          }
-        }, _t * 1000)
-      }
-      _run(t);
-
-    },
+    
     listenPage(p) {
       function run(opt) {
 
@@ -395,33 +310,7 @@
       }
       new run(p)
     },
-    timeDown: function(p, c) {
-      function run() {
-        var m = p.t || 0,
-          move = true,
-          setT;
-
-        function td(t) {
-          if (m <= 0) {
-            c.call(0, m);
-          } else if (move) {
-            setT = window.setTimeout(function() {
-              m--;
-              c.call(this, m);
-              td();
-            }, 1000)
-          }
-        }
-        this.stopT = function() {
-          clearTimeout(setT)
-          move = false;
-        }
-        td();
-        c.call(this, m);
-        return this;
-      }
-      return new run();
-    },
+    
     Crash: function(m, p) { //错误日志
       var self = this;
       if (!this.local && typeof _Log != "undefined") {

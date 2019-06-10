@@ -9,7 +9,7 @@
         <img style="width: 100%" src="./img/banner.png" alt="">
       </div>
 
-      <div style="padding: 0 16px;">
+      <!-- <div style="padding: 0 16px;">
         <more-title title='热门测算' more='更多测算'></more-title>
         <div class="hot_panel">
           <div class="hot_item">
@@ -25,9 +25,9 @@
             <img src="//r.51gjj.com/resource/jr/fate/hot_4.png" alt="">
           </div>
         </div>
-      </div>
+      </div> -->
 
-      <div>
+      <!-- <div>
         <div style="padding: 0 16px;  margin-top: 32px">
           <more-title title='有问有答' more='全部回答'></more-title>
         </div>
@@ -47,7 +47,7 @@
           </div>
           <div style="width: 1px" class=" f_g1 f_s0"></div>
         </div>
-      </div>
+      </div> -->
 
       <div style="padding: 0 16px; margin-top: 32px">
         <more-title title='更多测算' more='全部测算'></more-title>

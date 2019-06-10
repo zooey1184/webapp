@@ -63,7 +63,7 @@
       var self = this;
       // this.log("Global init");
       // this.baseSet();
-      this.SetFont();
+      // this.SetFont();
       return this;
     },
     SetFont(v) {

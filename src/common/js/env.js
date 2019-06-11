@@ -5,9 +5,9 @@
 export default function () {
   class Env {
     constructor () {
-      this.kaifaEnv = ['127.0.0.1', 'localhost', 'kaifa.jianbing.com', 'dev.51veryrich.com', 'dev.51jiedianhua.com', '192.168.101.55', 'test.jianbing.com']
+      this.kaifaEnv = ['127.0.0.1', 'localhost', 'www.zooey1184.com']
     }
-    originHost (str = 'kaifa.jianbing.com') {
+    originHost (str = '127.0.0.1') {
       let kaifa = this.kaifaEnv
       let o = window.location.host
       let protocol = window.location.protocol // => http:  || https:
@@ -32,7 +32,7 @@ export default function () {
       return t
     }
     mode () {
-      let originMode = 'kaifa_jianbing_com'
+      let originMode = 'localhost'
       let pro = window.location.host
       let protocol = window.location.protocol
       let slag = 'app'

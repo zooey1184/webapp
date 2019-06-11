@@ -8,7 +8,7 @@
       <input type="tel" v-model='phone' placeholder="请输入手机号">
     </div>
     <div class="inp_item" v-if='invite'>
-      <input type="text" readonly v-model='invite' placeholder="请输入手机号">
+      <input type="text" readonly v-model='invite' placeholder="邀请人">
     </div>
     <div class="inp_item">
       <input type="password" v-model='pwd' placeholder="设置登录密码">
@@ -36,7 +36,6 @@ import CountDown from '@/components/CountDown';
 import ckBox from '@/components/Form/box'
 import api from './api'
 import md5 from 'md5'
-import { setTimeout } from 'timers';
 
 export default {
   components: {

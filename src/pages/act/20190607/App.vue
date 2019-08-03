@@ -136,28 +136,46 @@ export default {
         this.$toast.show('请选择同意《用户使用协议》')
       }
     },
-    inWeb() {
-      let u = navigator.userAgent;
-      if (u.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)) {
-        var ua = u.toLowerCase();
-        if (ua.match(/MicroMessenger/i) == 'micromessenger') { // 微信浏览器判断
-          return false
-        } else if (ua.match(/QQ/i) == 'qq') { // QQ浏览器判断
-          return false
-        } else if (ua.match(/WeiBo/i) == "weibo") {
-          return false
-        } else {
-          if (ua.match(/Android/i) != null) {
-            return ((ua.match(/browser/i) == null) && (ua.match(/safari/i) != null && ua.match(/chrome/i) != null))
-          } else if (ua.match(/iPhone/i) != null) {
-            return (ua.match(/safari/i) == null && ua.match(/browser/i) == null && ua.match(/dingtalk/i) == null)
-          } else {
-            return (ua.match(/macintosh/i) == null && ua.match(/windows/i) == null)
+    ua() {
+      const u = navigator.userAgent
+      const ua = u.toLowerCase()
+      return {
+        isQQ: ua.indexOf('mqqbrowser') > -1,
+        isWX: /MicroMessenger/i.test(ua),
+        isANDROID: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1 || u.indexOf('android') > -1,
+        isIOS: /(iPhone|iPad|iPod|iOS|Mac)/i.test(ua),
+        isWEBAPP: u.indexOf('Safari') == -1,
+        isMOBILE: /AppleWebKit.*Mobile.*/i.test(ua),
+        isWEIBO: /WeiBo/i.test(ua) // 微博内置浏览器
+      }
+    },
+    checkUA (arr) {
+      // 1=>qq  2=>wechat  3=>weibo  4=>other
+      let ua = this.ua()
+      let b = true
+      for(let i=0; i<arr.length; i++) {
+        if(arr[i]==1) {
+          if(ua.isQQ) {
+            b = false
           }
         }
-      } else {
-        return false
+        if(arr[i]==2) {
+          if(ua.isWX) {
+            b = false
+          }
+        }
+        if(arr[i]==3) {
+          if(ua.isWEIBO) {
+            b = false
+          }
+        }
+        if(arr[i]==4) {
+          if(ua.isWEBAPP) {
+            b = false
+          }
+        }
       }
+      return b
     },
     codereset() {
       this.codeState = true
